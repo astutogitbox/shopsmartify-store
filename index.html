@@ -1,60 +1,157 @@
-<!DOCTYPE html><html lang="bn">
+<!DOCTYPE html>
+<html lang="bn">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SHOP Smarty | Direct Sale</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <style>
+    .glow:hover {
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+      transform: translateY(-5px);
+    }
+    .fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Blinking cursor effect */
+    .typing::after {
+      content: '|';
+      animation: blink 0.8s infinite;
+    }
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
+  </style>
+
   <script>
+    // WhatsApp order function
     function orderNow(productName) {
       const phone = '01750056652';
       const message = encodeURIComponent(`Hello! I want to order the product: ${productName} (Price: 2500tk)`);
       window.open(`https://wa.me/88${phone}?text=${message}`, '_blank');
     }
+
+    // Typing animation function
+    document.addEventListener("DOMContentLoaded", function() {
+      const textElement = document.getElementById("typing-text");
+      const phrases = ["Best Offers", "Fast Delivery", "Direct Sale", "Shop Smartly with SHOP Smarty"];
+      let i = 0, j = 0, deleting = false;
+
+      function type() {
+        let current = phrases[i];
+        if (!deleting) {
+          textElement.textContent = current.substring(0, j++);
+          if (j > current.length + 10) deleting = true; // pause before delete
+        } else {
+          textElement.textContent = current.substring(0, j--);
+          if (j === 0) {
+            deleting = false;
+            i = (i + 1) % phrases.length;
+          }
+        }
+        setTimeout(type, deleting ? 60 : 100);
+      }
+      type();
+    });
   </script>
 </head>
-<body class="bg-gray-100 font-sans">
-  <header class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-center py-6 shadow-lg">
-    <h1 class="text-3xl font-bold">SHOP Smarty</h1>
-    <p class="text-lg mt-2">Exclusive Combo Offers - Direct Order via WhatsApp</p>
-  </header>  <main class="max-w-6xl mx-auto py-10 px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"><!-- Product Card Template -->
-<div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-  <img src="product1.jpg" alt="Product 1" class="w-full h-56 object-cover">
-  <div class="p-5 text-center">
-    <h2 class="text-xl font-semibold mb-2">Product 1</h2>
-    <p class="text-gray-700 mb-4">Price: <span class="font-bold text-indigo-600">2500৳</span></p>
-    <button onclick="orderNow('Product 1')" class="bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full shadow-md transition">Order via WhatsApp</button>
-  </div>
-</div>
 
-<div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-  <img src="product2.jpg" alt="Product 2" class="w-full h-56 object-cover">
-  <div class="p-5 text-center">
-    <h2 class="text-xl font-semibold mb-2">Product 2</h2>
-    <p class="text-gray-700 mb-4">Price: <span class="font-bold text-indigo-600">2500৳</span></p>
-    <button onclick="orderNow('Product 2')" class="bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full shadow-md transition">Order via WhatsApp</button>
-  </div>
-</div>
+<body class="bg-gray-50 font-sans">
 
-<div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-  <img src="product3.jpg" alt="Product 3" class="w-full h-56 object-cover">
-  <div class="p-5 text-center">
-    <h2 class="text-xl font-semibold mb-2">Product 3</h2>
-    <p class="text-gray-700 mb-4">Price: <span class="font-bold text-indigo-600">2500৳</span></p>
-    <button onclick="orderNow('Product 3')" class="bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full shadow-md transition">Order via WhatsApp</button>
-  </div>
-</div>
+  <!-- HEADER -->
+  <header class="bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-600 text-white py-4 shadow-lg">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-4">
+      <div class="flex items-center space-x-3">
+        <img src="logo.png" alt="SHOP Smarty Logo" class="w-12 h-12 rounded-full border-2 border-white shadow-md">
+        <div>
+          <h1 class="text-2xl font-bold tracking-wide">SHOP Smarty</h1>
+          <p class="text-sm opacity-90">Exclusive Combo Offers | Direct Order via WhatsApp</p>
+        </div>
+      </div>
+      <a href="https://wa.me/8801750056652" target="_blank" class="hidden sm:inline-block bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full font-semibold transition">
+        💬 Chat Now
+      </a>
+    </div>
+  </header>
 
-<div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
-  <img src="product4.jpg" alt="Product 4" class="w-full h-56 object-cover">
-  <div class="p-5 text-center">
-    <h2 class="text-xl font-semibold mb-2">Product 4</h2>
-    <p class="text-gray-700 mb-4">Price: <span class="font-bold text-indigo-600">2500৳</span></p>
-    <button onclick="orderNow('Product 4')" class="bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full shadow-md transition">Order via WhatsApp</button>
-  </div>
-</div>
+  <!-- HERO SECTION -->
+  <section class="relative bg-gray-900 text-white">
+    <img src="hero-banner.jpg" alt="Hero Banner" class="w-full h-96 object-cover opacity-70">
+    <div class="absolute inset-0 bg-gradient-to-r from-indigo-800 via-purple-700 to-transparent opacity-80"></div>
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+      <h2 class="text-4xl md:text-5xl font-extrabold mb-3 drop-shadow-lg">Premium Deals at Your Fingertips</h2>
+      <p id="typing-text" class="typing text-lg md:text-xl mb-6 opacity-90 h-8"></p>
+      <a href="https://wa.me/8801750056652" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg transform hover:scale-105 transition">
+        🛒 Shop Now on WhatsApp
+      </a>
+    </div>
+  </section>
 
-  </main>  <footer class="text-center py-6 bg-gray-900 text-gray-200">
-    <p>📞 Contact: 01750056652 | 🌐 <a href="https://www.shopsmartify.store" class="text-indigo-400 hover:underline">www.shopsmartify.store</a></p>
+  <!-- PRODUCT GRID -->
+  <main class="max-w-6xl mx-auto py-12 px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    
+    <!-- Product Cards -->
+    <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition duration-300 transform glow fade-in">
+      <img src="product1.jpg" alt="Product 1" class="w-full h-56 object-cover">
+      <div class="p-5 text-center">
+        <h2 class="text-xl font-semibold mb-2">Product 1</h2>
+        <p class="text-gray-700 mb-4">Price: <span class="font-bold text-indigo-600">2500৳</span></p>
+        <button onclick="orderNow('Product 1')" class="bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full shadow-md transition">
+          Order via WhatsApp
+        </button>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition duration-300 transform glow fade-in">
+      <img src="product2.jpg" alt="Product 2" class="w-full h-56 object-cover">
+      <div class="p-5 text-center">
+        <h2 class="text-xl font-semibold mb-2">Product 2</h2>
+        <p class="text-gray-700 mb-4">Price: <span class="font-bold text-indigo-600">2500৳</span></p>
+        <button onclick="orderNow('Product 2')" class="bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full shadow-md transition">
+          Order via WhatsApp
+        </button>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition duration-300 transform glow fade-in">
+      <img src="product3.jpg" alt="Product 3" class="w-full h-56 object-cover">
+      <div class="p-5 text-center">
+        <h2 class="text-xl font-semibold mb-2">Product 3</h2>
+        <p class="text-gray-700 mb-4">Price: <span class="font-bold text-indigo-600">2500৳</span></p>
+        <button onclick="orderNow('Product 3')" class="bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full shadow-md transition">
+          Order via WhatsApp
+        </button>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition duration-300 transform glow fade-in">
+      <img src="product4.jpg" alt="Product 4" class="w-full h-56 object-cover">
+      <div class="p-5 text-center">
+        <h2 class="text-xl font-semibold mb-2">Product 4</h2>
+        <p class="text-gray-700 mb-4">Price: <span class="font-bold text-indigo-600">2500৳</span></p>
+        <button onclick="orderNow('Product 4')" class="bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full shadow-md transition">
+          Order via WhatsApp
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/8801750056652" target="_blank" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transition transform hover:scale-110">
+    💬
+  </a>
+
+  <!-- FOOTER -->
+  <footer class="text-center py-6 bg-gray-900 text-gray-300 mt-10">
+    <p>📞 Contact: 01750056652 | 🌐 
+      <a href="https://www.shopsmartify.store" class="text-indigo-400 hover:underline">www.shopsmartify.store</a>
+    </p>
     <p class="text-sm mt-2">© 2025 SHOP Smarty. All rights reserved.</p>
   </footer>
 </body>
