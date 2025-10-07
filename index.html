@@ -1,42 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="bn">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SMARTIFY Bangladesh</title>
-  <link rel="stylesheet" href="style.css">
+  <title>SHOP Smarty | Direct Sale</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    function orderNow(productName) {
+      const phone = '01750056652';
+      const message = encodeURIComponent(`Hello! I want to order the product: ${productName} (Price: 2500tk)`);
+      window.open(`https://wa.me/88${phone}?text=${message}`, '_blank');
+    }
+  </script>
 </head>
-<body>
-  <header>
-    <h1>SMARTIFY Bangladesh</h1>
-    <p>A trusted multi-sectoral retailer (online & physical), Exporter, Importer, Digital Services Provider.</p>
-  </header>
+<body class="bg-gray-100 font-sans">
+  <header class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-center py-6 shadow-lg">
+    <h1 class="text-3xl font-bold">SHOP Smarty</h1>
+    <p class="text-lg mt-2">Exclusive Combo Offers - Direct Order via WhatsApp</p>
+  </header>  <main class="max-w-6xl mx-auto py-10 px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"><!-- Product Card Template -->
+<div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+  <img src="product1.jpg" alt="Product 1" class="w-full h-56 object-cover">
+  <div class="p-5 text-center">
+    <h2 class="text-xl font-semibold mb-2">Product 1</h2>
+    <p class="text-gray-700 mb-4">Price: <span class="font-bold text-indigo-600">2500৳</span></p>
+    <button onclick="orderNow('Product 1')" class="bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full shadow-md transition">Order via WhatsApp</button>
+  </div>
+</div>
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Contact</a>
-  </nav>
+<div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+  <img src="product2.jpg" alt="Product 2" class="w-full h-56 object-cover">
+  <div class="p-5 text-center">
+    <h2 class="text-xl font-semibold mb-2">Product 2</h2>
+    <p class="text-gray-700 mb-4">Price: <span class="font-bold text-indigo-600">2500৳</span></p>
+    <button onclick="orderNow('Product 2')" class="bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full shadow-md transition">Order via WhatsApp</button>
+  </div>
+</div>
 
-  <main>
-    <section>
-      <h2>Our Services</h2>
-      <ul>
-        <li>Retail (Online & Physical)</li>
-        <li>Export & Import</li>
-        <li>Digital Services</li>
-      </ul>
-    </section>
+<div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+  <img src="product3.jpg" alt="Product 3" class="w-full h-56 object-cover">
+  <div class="p-5 text-center">
+    <h2 class="text-xl font-semibold mb-2">Product 3</h2>
+    <p class="text-gray-700 mb-4">Price: <span class="font-bold text-indigo-600">2500৳</span></p>
+    <button onclick="orderNow('Product 3')" class="bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full shadow-md transition">Order via WhatsApp</button>
+  </div>
+</div>
 
-    <section>
-      <h2>About Us</h2>
-      <p>We serve customers across multiple sectors with trust, innovation, and commitment. SMARTIFY Bangladesh is more than just a retailer — we are a global business partner.</p>
-    </section>
-  </main>
+<div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+  <img src="product4.jpg" alt="Product 4" class="w-full h-56 object-cover">
+  <div class="p-5 text-center">
+    <h2 class="text-xl font-semibold mb-2">Product 4</h2>
+    <p class="text-gray-700 mb-4">Price: <span class="font-bold text-indigo-600">2500৳</span></p>
+    <button onclick="orderNow('Product 4')" class="bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full shadow-md transition">Order via WhatsApp</button>
+  </div>
+</div>
 
-  <footer>
-    <p>&copy; 2025 SMARTIFY Bangladesh. All rights reserved.</p>
+  </main>  <footer class="text-center py-6 bg-gray-900 text-gray-200">
+    <p>📞 Contact: 01750056652 | 🌐 <a href="https://www.shopsmartify.store" class="text-indigo-400 hover:underline">www.shopsmartify.store</a></p>
+    <p class="text-sm mt-2">© 2025 SHOP Smarty. All rights reserved.</p>
   </footer>
 </body>
 </html>
